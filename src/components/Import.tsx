@@ -15,6 +15,14 @@ function Import() {
     const questionsArray: Question[] = [];
     const answersArray: Answer[] = [];
 
+    // remove empty lines
+    for (let i = 0; i < questions.length; i++) {
+      if (questions[i] === "") {
+        questions.splice(i, 1);
+        i--;
+      }
+    }
+
     let id = 0;
     for (const question of questions) {
       const [text, answer] = question.split("|");
